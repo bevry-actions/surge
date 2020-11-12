@@ -11,7 +11,6 @@ inputs:
   surgeLogin:
     description: "Your Surge email/username, get it via the `surge whoami` command."
     required: true
-    default: "1"
   surgeToken:
     description: "The token to authorize the deployments to Surge, get via the `surge token` command."
     required: true
