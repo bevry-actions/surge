@@ -1,5 +1,5 @@
 # https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
-name: "publish to surge"
+name: "bevry-actions/surge"
 author: "Benjamin Arthur Lupton <b@lupton.cc>"
 description: "GitHub Action to publish your project to https://surge.sh"
 branding:
