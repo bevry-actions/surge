@@ -1,0 +1,33 @@
+# https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
+name: "bevry-action/surge"
+author: "Benjamin Arthur Lupton <b@lupton.cc>"
+description: "GitHub Action to publish your project to https://surge.sh"
+branding:
+  icon: "anchor"
+  color: "green"
+
+# https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#inputs
+inputs:
+  surgeLogin:
+    description: "Your Surge email/username, get it via the `surge whoami` command."
+    required: true
+    default: "1"
+  surgeToken:
+    description: "The token to authorize the deployments to Surge, get via the `surge token` command."
+    required: true
+  surgeProject:
+    description: "The path that you want to deploy to Surge."
+    default: "."
+    required: false
+
+# https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-composite-run-steps-actions
+runs:
+  using: "composite"
+  steps:
+    - name: "publish to surge"
+      run: $GITHUB_ACTION_PATH/action.bash
+      shell: bash
+      env:
+        SURGE_LOGIN: ${{secrets.surgeLogin}}
+        SURGE_TOKEN: ${{secrets.surgeToken}}
+        SURGE_PROJECT: ${{secrets.surgeProject}}
