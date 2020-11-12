@@ -1,5 +1,5 @@
 # https://docs.github.com/en/free-pro-team@latest/actions/creating-actions/metadata-syntax-for-github-actions
-name: "bevry-action/surge"
+name: "publish to surge"
 author: "Benjamin Arthur Lupton <b@lupton.cc>"
 description: "GitHub Action to publish your project to https://surge.sh"
 branding:
@@ -24,10 +24,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: "publish to surge"
-      run: $GITHUB_ACTION_PATH/action.bash
+    - run: $GITHUB_ACTION_PATH/action.bash
       shell: bash
       env:
-        SURGE_LOGIN: ${{secrets.surgeLogin}}
-        SURGE_TOKEN: ${{secrets.surgeToken}}
-        SURGE_PROJECT: ${{secrets.surgeProject}}
+        SURGE_LOGIN: ${{inputs.surgeLogin}}
+        SURGE_TOKEN: ${{inputs.surgeToken}}
+        SURGE_PROJECT: ${{inputs.surgeProject}}
