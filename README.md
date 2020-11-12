@@ -33,7 +33,8 @@ npm install --save-dev surge
 And add the following to your GitHub Action workflow after your tests have completed and you have built your compile targets/documentation.
 
 ```yaml
-- uses: bevry-actions/surge@main
+- name: publish to surge
+  uses: bevry-actions/surge@main
   with:
       surgeLogin: ${{secrets.SURGE_LOGIN}}
       surgeToken: ${{secrets.SURGE_TOKEN}}
