@@ -1,4 +1,4 @@
-# bevry-action/surge
+# bevry-actions/surge
 
 Once your tests succeed, use this action to deploy your commit, branch, and tag to [Surge](https://surge.sh).
 
