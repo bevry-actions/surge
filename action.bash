@@ -72,6 +72,6 @@ if test ${#targets[@]} -eq 0; then
 else
 	for target in ${targets[*]}; do
 		echo "deploying $SURGE_PROJECT to $target"
-		npx --no-install surge --project $SURGE_PROJECT --domain "$target"
+		npx --yes surge --project $SURGE_PROJECT --domain "$target"
 	done
 fi
